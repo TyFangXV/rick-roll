@@ -1,25 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <center>
-        <video loop autoplay="autoplay" id="vid">
-          <source src="./Rick Astley - Never Gonna Give You Up (Official Music Video)_360P.mp4" type="video/mp4">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+      body {
+        font-family: 'Nanum Gothic', sans-serif;
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-image: linear-gradient(to right, #ff00de, #de00e2, #b700e6, #8900e9, #4312eb);
+      }
+      .view {
+        display: none;
+      }
+
+      .btn{
+          padding: 10px 50px 10px 50px;
+          border: none;
+          border-radius: 10px;
+          font-size: large;
+          background-color:  white;
+      }
+
+      .dxps{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+
+      .ellcot{
+          width: 500px;
+          height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="view" class="view">
+      <center id="center">
+        <video  id="vid">
+          <source
+            src="./Ad.mp4"
+            type="video/mp4"
+          />
         </video>
-        <h1>HAAHHA u just got rick rolled...get good</h1>
-    </center>
+        <h1 id="ad">We will redirect you after this Ad</h1>
+      </center>
+    </div>
+    <div class="dxps" id="dxps">
+      <center>
+        <h1>We will be using cookie to imporve your experiance</h1>
+        <button class="btn" id="btn">Ok</button>
+      </center>
+    </div>
 
     <script>
-        const vid = document.getElementById("vid");
+      const vid = document.getElementById('vid');
+      const btn = document.getElementById("btn");
+      const dspx = document.getElementById("dxps")
+      const view = document.getElementById("view");
+      const ad = document.getElementById("ad");
+      const center = document.getElementById("center")
 
+      btn.onclick = ()=> {
+        dspx.style.display = "none";
+        view.style.display = "block";
+
+        setTimeout(()=> {
+            vid.setAttribute("src", "./ad2.mp4");
+            vid.play();
+            ad.innerHTML = "HAHHAHAHHA bozo get rick rolled";
+            const img = document.createElement("img");
+            img.src = "./ad-face.png";
+            img.className = "ellcot"
+            document.getElementById('center').appendChild(img);
+        }, 2000)
+      }
+      /*
         window.onload = ()=> {
             vid.play();
         }
+        */
     </script>
-</body>
+  </body>
 </html>
