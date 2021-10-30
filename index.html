@@ -72,14 +72,23 @@
         dspx.style.display = "none";
         view.style.display = "block";
 
-        setTimeout(()=> {
+        setTimeout(async()=> {
             vid.setAttribute("src", "./xyous.mp4");
-            vid.play();
-            ad.innerHTML = "HAHHAHAHHA bozo get rick rolled";
+            const didplay = vid.play();
+            if(didplay !== undefined){
+              didplay.then(()=> vid.play()).catch((err)=> {
+                const gif = document.createElement("img");
+                gif.src = "./200.gif";
+                document.getElementById('center').appendChild(gif);
+              })
+            }
+
+
             const img = document.createElement("img");
             img.src = "./ad-face.png";
             img.className = "ellcot"
             document.getElementById('center').appendChild(img);
+            ad.innerHTML = "HAHHAHAHHA bozo get rick rolled";
         }, 2000)
       }
       /*
