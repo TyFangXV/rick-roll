@@ -8,8 +8,18 @@
 </head>
 <body>
     <center>
-        <video src="./Rick Astley - Never Gonna Give You Up (Official Music Video)_360P.mp4" autoplay></video>
+        <video loop autoplay="autoplay" id="vid">
+          <source src="./Rick Astley - Never Gonna Give You Up (Official Music Video)_360P.mp4" type="video/mp4">
+        </video>
         <h1>HAAHHA u just got rick rolled...get good</h1>
     </center>
+
+    <script>
+        const vid = document.getElementById("vid");
+
+        window.onload = ()=> {
+            vid.play();
+        }
+    </script>
 </body>
 </html>
